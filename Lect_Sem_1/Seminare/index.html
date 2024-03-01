@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function mergeArrays(firstArg, secondArg) {
+            return [...firstArg, ...secondArg];
+        }
+        console.log(mergeArrays([1, 2, 3], [4, 5, 6])); 
+
+        // ***********
+        function removeDuplicates(...args) {
+            const result = args.filter((el, ind) => ind === args.indexOf(el));
+            console.log(result);
+        }
+        removeDuplicates(1, 2, 3, 2, 4, 1, 5);
+
+        //*******Чистые функции*********
+        //** четные числа**
+        const arrayEven = [1, 5, 6, 8, 13];
+        const getEvenNumbers = (numbers) => {
+            const result = numbers.filter((num) => num % 2 === 0);
+            return result;
+        }
+        console.log(getEvenNumbers(arrayEven));
+        
+        //** среднее значение чисел**
+        const arrayAverage = [1, 5, 6, 8, 13];
+        const calculateAverage = (array) => {
+            sum = 0;
+            array.forEach(number => {
+                sum+=number;
+            });
+            return sum/array.length;
+        }
+        console.log(calculateAverage(arrayAverage));
+
+        //** заглавные
+        const myText = "напишите функцию capitalizeFirstLetter, которая принимает строку в качестве аргумента и возвращает новую строку, в которой первая буква каждого слова является заглавной";
+
+        const capitalizeFirstLetter = (text) => {
+            return text.replace(/(^|\s)\S/g, function(word) {
+                return word.toUpperCase()
+            });
+        }
+        console.log(capitalizeFirstLetter(myText));
+
+
+        //*******Замыкания*********
+        const createCalculator = () => {
+            const numberAdd = 0;
+            const numberSubtract = 0;
+            return (x) => {
+                
+            }
+        } 
+        const chachedPow = createCalculator();
+        chachedPow(2);
+        
+        
+
+        console.log(createCalculator(1));
+    </script>
+
+</body>
+</html>
