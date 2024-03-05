@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Задание 1. "Управление персоналом компании"
+        // Реализуйте класс Employee (сотрудник), который имеет следующие свойства и
+        // методы:
+        // ● Свойство name (имя) - строка, имя сотрудника.
+        // ● Метод displayInfo() - выводит информацию о сотруднике (имя).
+        // Реализуйте класс Manager (менеджер), который наследует класс Employee и имеет
+        // дополнительное свойство и метод:
+        // ● Свойство department (отдел) - строка, отдел, в котором работает менеджер.
+        // ● Метод displayInfo() - переопределяет метод displayInfo()
+        // родительского класса и выводит информацию о менеджере (имя и отдел).
+
+        class Employee {
+            name = "Liza";
+            displayInfo(){
+                console.log(this.name);
+            }
+            constructor(){
+            }
+            
+        }
+
+        class Manager extends Employee {
+            department = "***";
+
+            displayInfo(){
+                console.log(this.name, this.department);
+            }
+        }
+        const employee = new Employee;
+        employee.displayInfo();
+        const manager = new Manager("stat");
+        manager.displayInfo();
+        console.log("*********************");
+
+        // Задание 2. "Управление списком заказов"
+        // Реализуйте класс Order (заказ), который имеет следующие свойства и методы:
+        // ● Свойство orderNumber (номер заказа) - число, уникальный номер заказа.
+        // ● Свойство products (продукты) - массив, содержащий список продуктов в
+        // заказе.
+        // ● Метод addProduct(product) - принимает объект product и добавляет его в
+        // список продуктов заказа.
+        // ● Метод getTotalPrice() - возвращает общую стоимость заказа, основанную
+        // на ценах продуктов.
+
+        class Product {
+            name = "";
+            price = 0;
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+
+        }
+        class Order {
+            orderNumber = 0;
+            products = [];
+
+            constructor(productNumber){
+                this.orderNumber = productNumber;
+            }
+
+            addProduct(product){
+                this.products.push(product);
+            }
+            getTotalPrice(){
+                let sum = 0;
+                this.products.forEach(element => {
+                    sum += element.price;
+                });
+                return sum;
+            }
+        }
+
+        const order = new Order(1);
+        const prod = new Product("яблоко", 500);
+        order.addProduct(prod);
+
+        const product2 = new Product("Headphones", 100);
+        order.addProduct(product2);
+
+        console.log(order.getTotalPrice());
+
+
+    </script>
+</body>
+</html>
